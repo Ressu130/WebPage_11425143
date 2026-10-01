@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="藍地咖啡（LAN DI COFFEE）— 專為大眾打造的平價優質日常咖啡。新鮮烘焙日常咖啡豆、辦公室人氣濾掛隨享包，溫潤順口不酸澀，讓每一天都充滿香醇活力。">
+  <title>藍地咖啡 LAN DI COFFEE｜陪伴你的每一天日常好咖啡 ‧ 平價新鮮豆單</title>
+  
+  <!-- Google Fonts: Noto Sans TC (親切清晰), Noto Serif TC (溫潤手感), Quicksand & Outfit (簡約現代) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ----------------------------------------------------
+       Design System: 藍地咖啡
+       品牌顏色：藍色 (Blue) + 米色 (Beige) + 淺棕色 (Light Brown)
+       品牌風格：一般咖啡豆、平易近人、溫暖大眾日常
+       ---------------------------------------------------- */
+    :root {
+      /* 藍色系 (Blue) */
+      --blue-dark: #12283e;         /* 深海夜藍 (文字/頁尾) */
+      --blue-primary: #1c4b75;      /* 經典日常藍 (主色) */
+      --blue-medium: #27659b;       /* 溫和晴空藍 */
+      --blue-light: #528ebb;        /* 明亮天藍 */
+      --blue-soft: #eaf1f7;         /* 柔和藍底色 */
+
+      /* 淺棕色系 (Light Brown / Coffee) */
+      --brown-primary: #8a5734;     /* 溫潤咖啡棕 (強調色) */
+      --brown-light: #b5835e;       /* 淺焙焦糖棕 */
+      --brown-latte: #d4ab8a;       /* 拿鐵奶泡棕 */
+      --brown-soft: #f7efe7;        /* 淺棕柔和背景 */
+
+      /* 米色系 (Beige / Cream) */
+      --beige-bg: #faf7f2;          /* 暖米色紙質基底 */
+      --beige-card: #ffffff;        /* 純白卡片 */
+      --beige-soft: #f3ece1;        /* 雅致米杏色 */
+      --beige-dark: #e5dac9;        /* 米褐色邊框 */
+
+      /* 通用文字與陰影 */
+      --text-main: #20313f;         /* 沉穩深藍灰內文 */
+      --text-muted: #5e7385;        /* 次要輔助灰藍 */
+      --text-light: #8d9fae;        /* 淡灰標籤 */
+      --border-color: #e2ddd3;      /* 溫和分隔線 */
+      --shadow-sm: 0 4px 12px rgba(28, 75, 117, 0.06);
+      --shadow-md: 0 10px 24px rgba(28, 75, 117, 0.09);
+      --shadow-lg: 0 18px 40px rgba(28, 75, 117, 0.12);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: all 0.28s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--beige-bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--blue-dark);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .serif-title {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .en-title {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Common Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 26px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-blue {
+      background-color: var(--blue-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(28, 75, 117, 0.25);
+    }
+
+    .btn-blue:hover {
+      background-color: var(--blue-medium);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(28, 75, 117, 0.35);
+    }
+
+    .btn-brown {
+      background-color: var(--brown-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(138, 87, 52, 0.25);
+    }
+
+    .btn-brown:hover {
+      background-color: var(--brown-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-blue {
+      border-color: var(--blue-primary);
+      color: var(--blue-primary);
+      background: transparent;
+    }
+
+    .btn-outline-blue:hover {
+      background: var(--blue-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 7px 16px;
+      font-size: 13px;
+    }
+
+    /* Section Global */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--brown-primary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      background-color: var(--brown-light);
+    }
+
+    .section-heading {
+      font-size: clamp(26px, 3.8vw, 38px);
+      margin-bottom: 14px;
+    }
+
+    .section-heading span.highlight-blue {
+      color: var(--blue-primary);
+    }
+
+    .section-heading span.highlight-brown {
+      color: var(--brown-primary);
+    }
+
+    .section-subtitle {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.75;
+    }
+
+    /* ----------------------------------------------------
+       Top Announcement Bar
+       ---------------------------------------------------- */
+    .top-banner {
+      background-color: var(--blue-dark);
+      color: #e3edf5;
+      font-size: 12.5px;
+      padding: 8px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .top-banner strong {
+      color: #ffffff;
+    }
+
+    .top-banner span.code-pill {
+      background: var(--brown-primary);
+      color: #fff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+
+    /* ----------------------------------------------------
+       Site Header / Navigation
+       ---------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-dark));
+      border: 2px solid var(--brown-latte);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title h1 {
+      font-size: 21px;
+      color: var(--blue-dark);
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-title span {
+      display: block;
+      font-size: 10px;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.18em;
+      color: var(--brown-primary);
+      font-weight: 600;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-main);
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .nav-menu a:hover {
+      color: var(--blue-primary);
+    }
+
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--brown-primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.24s ease;
+    }
+
+    .nav-menu a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cart-trigger-btn {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      color: var(--blue-primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .cart-trigger-btn:hover {
+      border-color: var(--blue-primary);
+      background-color: var(--blue-soft);
+    }
+
+    .cart-pill-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--brown-primary);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 2px solid #ffffff;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--blue-dark);
+      cursor: pointer;
+    }
+
+    /* ----------------------------------------------------
+       Hero Section: 藍色 + 米色 + 淺棕色 日常清新溫暖
+       ---------------------------------------------------- */
+    .hero-section {
+      background: linear-gradient(135deg, #f7f3ec 0%, #edf3f8 60%, #e3ecf5 100%);
+      padding: 88px 0 96px;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--blue-primary);
+      font-weight: 600;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-badge-pill span.icon-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--brown-primary);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4.8vw, 50px);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .hero-title span.blue-text {
+      color: var(--blue-primary);
+    }
+
+    .hero-title span.brown-text {
+      color: var(--brown-primary);
+    }
+
+    .hero-desc {
+      font-size: 16.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .hero-perks {
+      display: flex;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .hero-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .perk-check {
+      width: 22px;
+      height: 22px;
+      background: var(--blue-soft);
+      border-radius: 50%;
+      color: var(--blue-primary);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero-perk-item span {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+
+    /* Hero Visual Card (Daily Coffee Mug & Bag) */
+    .hero-card-visual {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .hero-card-visual::before {
+      content: "★ 今日店長大眾推薦";
+      position: absolute;
+      top: -12px;
+      left: 28px;
+      background: var(--brown-primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mug-art-container {
+      height: 210px;
+      background: linear-gradient(135deg, var(--blue-soft), var(--beige-soft));
+      border-radius: var(--radius-md);
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-info h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+      color: var(--blue-dark);
+    }
+
+    .hero-flavor-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .hero-tag-chip {
+      font-size: 12px;
+      background: var(--beige-soft);
+      color: var(--brown-primary);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .hero-card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .hero-card-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--blue-primary);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .hero-card-price small {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    /* ----------------------------------------------------
+       Pillars / 為什麼選擇藍地？(貼合一般大眾與一般咖啡豆)
+       ---------------------------------------------------- */
+    .features-section {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: var(--beige-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 36px 28px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-medium);
+      background: #ffffff;
+    }
+
+    .feature-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon-box.blue {
+      background: var(--blue-soft);
+      color: var(--blue-primary);
+    }
+
+    .feature-icon-box.brown {
+      background: var(--brown-soft);
+      color: var(--brown-primary);
+    }
+
+    .feature-icon-box.beige {
+      background: var(--beige-soft);
+      color: var(--brown-primary);
+    }
+
+    .feature-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ----------------------------------------------------
+       Interactive Coffee Taste Quiz (30秒為新手找到風味)
+       ---------------------------------------------------- */
+    .quiz-section {
+      background: linear-gradient(135deg, #1c4b75, #12283e);
+      color: #ffffff;
+      padding: 84px 0;
+    }
+
+    .quiz-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      backdrop-filter: blur(8px);
+    }
+
+    .quiz-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    .quiz-header h2 {
+      color: #ffffff;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .quiz-header p {
+      color: #c0d3e5;
+      font-size: 14.5px;
+    }
+
+    .quiz-step-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .quiz-question-group h4 {
+      color: var(--brown-latte);
+      font-size: 15px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-align: left;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .quiz-option-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: var(--brown-latte);
+    }
+
+    .quiz-option-btn.selected {
+      background: var(--brown-primary);
+      border-color: var(--brown-latte);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .quiz-result-card {
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .quiz-result-info h3 {
+      font-size: 18px;
+      color: var(--blue-primary);
+      margin-bottom: 4px;
+    }
+
+    .quiz-result-info p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------------------------
+       Product Catalog (一般咖啡豆 / 熱銷選單 / 吸引消費)
+       ---------------------------------------------------- */
+    .products-section {
+      background-color: var(--beige-bg);
+    }
+
+    .product-filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .product-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      padding: 8px 18px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 13.5px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-tab:hover {
+      border-color: var(--blue-primary);
+      color: var(--blue-primary);
+    }
+
+    .filter-tab.active {
+      background-color: var(--blue-primary);
+      color: #ffffff;
+      border-color: var(--blue-primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--beige-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-light);
+    }
+
+    .product-thumbnail {
+      height: 180px;
+      background: linear-gradient(135deg, var(--beige-soft), #e4eff8);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--blue-primary);
+      color: #fff;
+    }
+
+    .product-badge.brown {
+      background: var(--brown-primary);
+    }
+
+    .product-badge.beige {
+      background: var(--blue-dark);
+    }
+
+    .product-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category-label {
+      font-size: 11.5px;
+      color: var(--brown-primary);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .product-title {
+      font-size: 17px;
+      margin-bottom: 8px;
+      color: var(--blue-dark);
+    }
+
+    .product-notes {
+      font-size: 13px;
+      color: var(--text-muted);
+      background: var(--beige-bg);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .product-features-list {
+      list-style: none;
+      font-size: 12px;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .product-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .product-features-list li svg {
+      width: 14px;
+      height: 14px;
+      color: var(--blue-primary);
+    }
+
+    .product-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .price-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--blue-primary);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .price-value small {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ----------------------------------------------------
+       Easy Brewing Guide (大眾輕鬆泡)
+       ---------------------------------------------------- */
+    .brew-easy-section {
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    .step-item-card {
+      background: var(--beige-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      position: relative;
+    }
+
+    .step-num-badge {
+      width: 38px;
+      height: 38px;
+      background: var(--blue-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .step-item-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: var(--blue-dark);
+    }
+
+    .step-item-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ----------------------------------------------------
+       Special First-Timer Offer / 吸引消費
+       ---------------------------------------------------- */
+    .starter-bundle-section {
+      background: var(--beige-soft);
+      padding: 76px 0;
+    }
+
+    .starter-card-box {
+      background: #ffffff;
+      border: 2px solid var(--brown-latte);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .starter-content h3 {
+      font-size: 28px;
+      color: var(--blue-dark);
+      margin-bottom: 12px;
+    }
+
+    .starter-content p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .bundle-includes {
+      list-style: none;
+      margin-bottom: 26px;
+    }
+
+    .bundle-includes li {
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .bundle-includes li svg {
+      color: var(--brown-primary);
+      width: 16px;
+      height: 16px;
+    }
+
+    .starter-price-card {
+      background: var(--blue-soft);
+      border: 1px solid var(--blue-light);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .starter-old-price {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .starter-deal-price {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--blue-primary);
+      font-family: 'Outfit', sans-serif;
+      margin: 4px 0 12px;
+    }
+
+    .starter-deal-price small {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------------------------
+       Social Reviews / 大眾評價
+       ---------------------------------------------------- */
+    .reviews-section {
+      background-color: var(--beige-bg);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .review-bubble {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-stars {
+      color: var(--brown-primary);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .review-quote {
+      font-size: 14px;
+      color: var(--text-main);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .customer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 14px;
+    }
+
+    .customer-avatar {
+      width: 38px;
+      height: 38px;
+      background: var(--blue-soft);
+      color: var(--blue-primary);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .customer-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+
+    .customer-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------------------------
+       Footer
+       ---------------------------------------------------- */
+    .site-footer {
+      background-color: var(--blue-dark);
+      color: #9eb1c2;
+      padding: 72px 0 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      font-size: 13.5px;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      padding-left: 3px;
+    }
+
+    .footer-contact-row {
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6a8298;
+    }
+
+    /* ----------------------------------------------------
+       Cart Drawer (購物車抽屜)
+       ---------------------------------------------------- */
+    .cart-drawer-mask {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-mask.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(400px, 100%);
+      height: 100%;
+      background: #ffffff;
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .cart-sidebar.active {
+      transform: translateX(0);
+    }
+
+    .cart-head {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--blue-soft);
+    }
+
+    .cart-head h3 {
+      font-size: 17px;
+      color: var(--blue-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .cart-body-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .cart-row-item {
+      display: grid;
+      grid-template-columns: 50px 1fr auto;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+      align-items: center;
+    }
+
+    .cart-row-img {
+      width: 50px;
+      height: 50px;
+      background: var(--beige-soft);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      color: var(--blue-primary);
+    }
+
+    .cart-row-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--blue-dark);
+      margin-bottom: 2px;
+    }
+
+    .cart-row-price {
+      font-size: 12.5px;
+      color: var(--brown-primary);
+      font-weight: 700;
+    }
+
+    .cart-row-del {
+      background: none;
+      border: none;
+      color: #9cb0c0;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .cart-row-del:hover {
+      color: #c0392b;
+    }
+
+    .cart-foot-panel {
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+      background: var(--beige-bg);
+    }
+
+    .free-shipping-bar {
+      font-size: 12px;
+      color: var(--blue-primary);
+      background: var(--blue-soft);
+      padding: 7px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .cart-total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--blue-dark);
+    }
+
+    .cart-total-line span:last-child {
+      color: var(--blue-primary);
+      font-size: 22px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--blue-dark);
+      color: #ffffff;
+      border: 1px solid var(--brown-latte);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+      z-index: 2000;
+      opacity: 0;
+      transition: all 0.28s ease;
+      pointer-events: none;
+    }
+
+    .toast-box.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .features-grid, .steps-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .quiz-step-container {
+        grid-template-columns: 1fr;
+      }
+      .starter-card-box {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+      .mobile-nav-panel {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        background: #ffffff;
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .mobile-nav-panel.open {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-layout {
+        grid-template-columns: 1fr;
+      }
+      .hero-perks {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar (一般大眾吸引折扣) -->
+  <aside class="top-banner" aria-label="活動快報">
+    <div class="container">
+      ☕ <strong>藍地咖啡 ‧ 日常好咖啡陪伴</strong>｜超商取貨滿 <strong>NT$ 599 免運</strong>，新客首購結帳輸入 <span class="code-pill">LANDI90</span> 現享 9 折！
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand" aria-label="藍地咖啡首頁">
+        <div class="brand-icon">
+          <!-- Coffee Mug SVG (藍色底 + 米色線條) -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <h1>藍地咖啡</h1>
+          <span>LAN DI COFFEE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav aria-label="選單導覽">
+        <ul class="nav-menu">
+          <li><a href="#products">日常人氣豆單</a></li>
+          <li><a href="#quiz">風味小測驗</a></li>
+          <li><a href="#brew">簡單泡也好喝</a></li>
+          <li><a href="#bundle">新客嚐鮮組</a></li>
+          <li><a href="#reviews">顧客真實分享</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button class="cart-trigger-btn" id="openCartBtn" aria-label="開啟購物車">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-pill-count" id="cartCount">0</span>
+        </button>
+
+        <a href="#products" class="btn btn-blue btn-sm">挑選日常咖啡</a>
+
+        <button class="menu-btn" id="menuToggle" aria-label="展開手機選單">☰</button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Nav Panel -->
+    <div class="mobile-nav-panel" id="mobileNav">
+      <a href="#products" class="mobile-link">日常人氣豆單</a>
+      <a href="#quiz" class="mobile-link">風味小測驗</a>
+      <a href="#brew" class="mobile-link">簡單泡也好喝</a>
+      <a href="#bundle" class="mobile-link">新客嚐鮮組</a>
+      <a href="#reviews" class="mobile-link">顧客真實分享</a>
+      <a href="#products" class="btn btn-blue btn-sm" style="text-align: center;">立即選購咖啡</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        
+        <!-- Left: Copy & Values -->
+        <div class="hero-text-block">
+          <div class="hero-badge-pill">
+            <span class="icon-dot"></span>
+            平價好入手 ‧ 新鮮現烘 ‧ 溫潤順口
+          </div>
+
+          <h2 class="hero-title serif-title">
+            讓一杯好咖啡，<br>
+            成為你最<span class="blue-text">舒心</span>的<span class="brown-text">日常習慣</span>
+          </h2>
+
+          <p class="hero-desc">
+            「藍地咖啡」為喜愛咖啡的大眾而調配。沒有複雜艱澀的術語，只有實在烘焙與溫潤不酸澀的平衡口感。無論是早晨提神、午後放鬆，都能輕鬆享受現磨現沖的咖啡香。
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#products" class="btn btn-blue">
+              <span>探索日常推薦豆單</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#quiz" class="btn btn-outline-blue">
+              <span>30秒找到喜歡的口味</span>
+            </a>
+          </div>
+
+          <div class="hero-perks">
+            <div class="hero-perk-item">
+              <span class="perk-check">✓</span>
+              <span>溫潤不酸澀配方</span>
+            </div>
+            <div class="hero-perk-item">
+              <span class="perk-check">✓</span>
+              <span>每週新鮮現烘出貨</span>
+            </div>
+            <div class="hero-perk-item">
+              <span class="perk-check">✓</span>
+              <span>一杯不到 25 元超平價</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Daily Coffee Visual Card -->
+        <div class="hero-visual-col">
+          <div class="hero-card-visual">
+            
+            <div class="mug-art-container">
+              <!-- Everyday Coffee Mug SVG Graphic with Steam & Beans -->
+              <svg width="180" height="150" viewBox="0 0 160 140" fill="none">
+                <!-- Coffee Steam -->
+                <path d="M60 25 Q65 15 60 5" stroke="var(--brown-latte)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M80 30 Q75 18 80 8" stroke="var(--brown-light)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M100 25 Q105 15 100 5" stroke="var(--brown-latte)" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- Ceramic Blue Mug Body -->
+                <rect x="42" y="38" width="76" height="66" rx="8" fill="var(--blue-primary)"/>
+                <!-- Mug Rim Highlight -->
+                <ellipse cx="80" cy="40" rx="38" ry="6" fill="#2d6ea3"/>
+                <!-- Liquid Inside Mug -->
+                <ellipse cx="80" cy="40" rx="34" ry="4.5" fill="#54371f"/>
+
+                <!-- Mug Handle -->
+                <path d="M118 50 C135 50 135 84 118 84" stroke="var(--blue-primary)" stroke-width="9" stroke-linecap="round"/>
+
+                <!-- Mug White Graphic (Leaf/Smile) -->
+                <path d="M68 70 Q80 82 92 70" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- Saucer / Plate (Beige) -->
+                <ellipse cx="80" cy="110" rx="60" ry="8" fill="var(--brown-latte)"/>
+                <ellipse cx="80" cy="108" rx="55" ry="6" fill="var(--beige-soft)"/>
+
+                <!-- Coffee Beans Scatter (Brown) -->
+                <ellipse cx="32" cy="115" rx="6" ry="4" transform="rotate(-20 32 115)" fill="var(--brown-primary)"/>
+                <path d="M30 113 Q32 115 34 117" stroke="#ffffff" stroke-width="1"/>
+
+                <ellipse cx="128" cy="114" rx="6" ry="4" transform="rotate(30 128 114)" fill="var(--brown-primary)"/>
+                <path d="M126 112 Q128 114 130 116" stroke="#ffffff" stroke-width="1"/>
+              </svg>
+            </div>
+
+            <div class="hero-card-info">
+              <h3>藍地晨光 ‧ 經典特調日常豆</h3>
+              <div class="hero-flavor-tags">
+                <span class="hero-tag-chip">堅果杏仁</span>
+                <span class="hero-tag-chip">柔順黑可可</span>
+                <span class="hero-tag-chip">黑糖甘甜</span>
+                <span class="hero-tag-chip">中烘焙</span>
+              </div>
+              <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px;">
+                最受上班族與家庭歡迎的招牌款式。黑咖啡滑順清甜，加入鮮奶變身香濃拿鐵！
+              </p>
+
+              <div class="hero-card-bottom">
+                <div class="hero-card-price">
+                  NT$ 280 <small>/ 半磅 225g</small>
+                </div>
+                <button class="btn btn-brown btn-sm add-cart-action"
+                        data-id="bean-morning"
+                        data-name="藍地晨光 經典特調日常豆 (半磅)"
+                        data-price="280">
+                  + 放入購物車
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 Great Reasons / 貼近大眾生活的品牌理念 -->
+    <section class="features-section">
+      <div class="container">
+        
+        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+          <div class="section-eyebrow" style="justify-content: center;">Daily Coffee Life</div>
+          <h2 class="section-heading">為什麼藍地咖啡是你的 <span class="highlight-blue">日常首選？</span></h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            好咖啡不該遙不可及。我們化繁為簡，讓好喝與平價在你的每一天日常並存。
+          </p>
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-card">
+            <div class="feature-icon-box blue">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                <line x1="15" y1="9" x2="15.01" y2="9"/>
+              </svg>
+            </div>
+            <h3>平易近人的好滋味</h3>
+            <p>特別調配低酸度、高甜感的烘焙曲線。溫和不咬胃，沒有過度刺激的酸苦，順口回甘，全家人都能開心享用。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box brown">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+                <line x1="12" y1="6" x2="12" y2="8"/>
+                <line x1="12" y1="16" x2="12" y2="18"/>
+              </svg>
+            </div>
+            <h3>天天喝也不傷荷包</h3>
+            <p>省去昂貴華麗包裝與繁瑣行銷，將成本回饋於咖啡豆新鮮度。半磅只要 NT$ 280 起，每日一杯不到 25 元。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box beige">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <h3>免專業器具輕鬆沖</h3>
+            <p>美式咖啡機、一般馬克杯、熱水壺、或是濾掛撕開即沖。簡單三步驟，隨時隨地香氣四溢。</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Quiz / 30秒新手咖啡口味小測驗 -->
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        
+        <div class="quiz-box">
+          <div class="quiz-header">
+            <div style="font-size: 12px; color: var(--brown-latte); font-weight: 700; letter-spacing: 0.15em; margin-bottom: 6px;">
+              30 SECONDS COFFEE FINDER
+            </div>
+            <h2>不知道選哪款？30秒測出你的命定咖啡！</h2>
+            <p>解答兩道日常簡單小問題，系統立刻為你推薦最符合你口味的藍地日常咖啡。</p>
+          </div>
+
+          <div class="quiz-step-container">
+            
+            <!-- Question 1 -->
+            <div class="quiz-question-group">
+              <h4>
+                <span>Q1</span> 你平時最喜歡怎麼喝咖啡？
+              </h4>
+              <div class="quiz-options" id="quizQ1">
+                <button class="quiz-option-btn selected" data-q="1" data-val="black">
+                  ☕ 喜歡清爽黑咖啡（享受純粹香氣與甘甜）
+                </button>
+                <button class="quiz-option-btn" data-q="1" data-val="latte">
+                  🥛 喜歡加牛奶拿鐵（偏好醇厚濃郁奶香）
+                </button>
+                <button class="quiz-option-btn" data-q="1" data-val="drip">
+                  ⚡ 辦公室求快便利（撕開即沖濾掛包）
+                </button>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-question-group">
+              <h4>
+                <span>Q2</span> 你偏好哪種咖啡香氣調性？
+              </h4>
+              <div class="quiz-options" id="quizQ2">
+                <button class="quiz-option-btn selected" data-q="2" data-val="nutty">
+                  🌰 堅果、炒杏仁與焦糖香甜（溫和平衡）
+                </button>
+                <button class="quiz-option-btn" data-q="2" data-val="cocoa">
+                  🍫 深焙黑巧克力與厚實可可（不酸、厚重）
+                </button>
+                <button class="quiz-option-btn" data-q="2" data-val="fruity">
+                  🍊 輕甜柑橘與清新水果甜（清爽不酸澀）
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Quiz Recommendation Card -->
+          <div class="quiz-result-card" id="quizResultCard">
+            <div class="quiz-result-info">
+              <span style="font-size: 11px; background: var(--blue-soft); color: var(--blue-primary); font-weight: 700; padding: 2px 8px; border-radius: 4px;">
+                專屬推薦
+              </span>
+              <h3 id="recommendName" style="margin-top: 6px;">藍地晨光 ‧ 經典特調日常豆</h3>
+              <p id="recommendDesc">堅果甘甜配方，圓潤順口不酸澀，黑咖啡與小拿鐵皆完美適配！</p>
+            </div>
+            <div>
+              <button class="btn btn-blue btn-sm" id="recommendAddBtn"
+                      data-id="bean-morning"
+                      data-name="藍地晨光 經典特調日常豆"
+                      data-price="280">
+                加入推薦品項 (NT$ 280)
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Product Showcase / 人氣日常豆單 (一般咖啡豆) -->
+    <section class="products-section" id="products">
+      <div class="container">
+        
+        <div class="product-filter-bar">
+          <div>
+            <div class="section-eyebrow">Everyday Coffee Menu</div>
+            <h2 class="section-heading">熱銷日常咖啡豆與 <span class="highlight-blue">便利濾掛</span></h2>
+            <p class="section-subtitle">
+              嚴選各產區優質莊園生豆調和，每週新鮮現烘，讓日常每杯咖啡都安定好喝。
+            </p>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="product-tabs" role="tablist">
+            <button class="filter-tab active" data-filter="all">全部日常選品 (5)</button>
+            <button class="filter-tab" data-filter="beans">新鮮咖啡豆 (3)</button>
+            <button class="filter-tab" data-filter="drip">濾掛隨享包 (1)</button>
+            <button class="filter-tab" data-filter="bundle">超值家庭號 (1)</button>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+          
+          <!-- Product 1: 晨光經典 (日常豆) -->
+          <article class="product-card" data-cat="beans">
+            <div class="product-thumbnail">
+              <span class="product-badge">熱銷 No.1</span>
+              <!-- Simple Coffee Bean Bag Icon -->
+              <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="var(--blue-primary)" stroke-width="1.6">
+                <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"/>
+                <circle cx="12" cy="14" r="3" stroke="var(--brown-primary)"/>
+                <path d="M12 12 Q13 14 12 16" stroke="var(--brown-primary)"/>
+              </svg>
+            </div>
+
+            <div class="product-body">
+              <span class="product-category-label">經典日常豆 ‧ 中烘焙</span>
+              <h3 class="product-title">藍地晨光 經典特調日常豆</h3>
+              <div class="product-notes">
+                <strong>風味：</strong>杏仁堅果、焦糖甘甜、黑巧克力
+              </div>
+
+              <ul class="product-features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  適合：美式咖啡機、手沖、冷萃
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  規格：半磅 225g（約可沖 15 杯）
+                </li>
+              </ul>
+
+              <div class="product-footer">
+                <div class="price-value">
+                  NT$ 280 <small>/ 包</small>
+                </div>
+                <button class="btn btn-blue btn-sm add-cart-action"
+                        data-id="bean-morning"
+                        data-name="藍地晨光 經典特調日常豆 (半磅)"
+                        data-price="280">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2: 陽光清甜 (日常豆) -->
+          <article class="product-card" data-cat="beans">
+            <div class="product-thumbnail">
+              <span class="product-badge brown">溫和清爽</span>
+              <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="var(--brown-primary)" stroke-width="1.6">
+                <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"/>
+                <circle cx="12" cy="14" r="3" stroke="var(--blue-primary)"/>
+                <path d="M12 12 Q13 14 12 16" stroke="var(--blue-primary)"/>
+              </svg>
+            </div>
+
+            <div class="product-body">
+              <span class="product-category-label">清新日常豆 ‧ 中淺焙</span>
+              <h3 class="product-title">陽光果實 溫和柔和特調豆</h3>
+              <div class="product-notes">
+                <strong>風味：</strong>甜橙果香、奶油脆餅、柔和蜂蜜甜
+              </div>
+
+              <ul class="product-features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  適合：黑咖啡入門者、晨間清爽首選
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  規格：半磅 225g（約可沖 15 杯）
+                </li>
+              </ul>
+
+              <div class="product-footer">
+                <div class="price-value">
+                  NT$ 320 <small>/ 包</small>
+                </div>
+                <button class="btn btn-blue btn-sm add-cart-action"
+                        data-id="bean-sun"
+                        data-name="陽光果實 溫和柔和特調豆 (半磅)"
+                        data-price="320">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3: 濃醇拿鐵 (日常豆) -->
+          <article class="product-card" data-cat="beans">
+            <div class="product-thumbnail">
+              <span class="product-badge beige">拿鐵必備</span>
+              <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="var(--blue-dark)" stroke-width="1.6">
+                <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"/>
+                <circle cx="12" cy="14" r="3" stroke="var(--brown-latte)"/>
+                <path d="M12 12 Q13 14 12 16" stroke="var(--brown-latte)"/>
+              </svg>
+            </div>
+
+            <div class="product-body">
+              <span class="product-category-label">濃郁日常豆 ‧ 中深焙</span>
+              <h3 class="product-title">厚烤焦糖 拿鐵專用配方豆</h3>
+              <div class="product-notes">
+                <strong>風味：</strong>濃郁黑可可、烤核桃、焦糖香氣
+              </div>
+
+              <ul class="product-features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  適合：加牛奶、摩卡壺、家用義式機
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  規格：半磅 225g（濃郁醇厚）
+                </li>
+              </ul>
+
+              <div class="product-footer">
+                <div class="price-value">
+                  NT$ 290 <small>/ 包</small>
+                </div>
+                <button class="btn btn-blue btn-sm add-cart-action"
+                        data-id="bean-latte"
+                        data-name="厚烤焦糖 拿鐵專用配方豆 (半磅)"
+                        data-price="290">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 4: 濾掛隨享盒 (便利大眾) -->
+          <article class="product-card" data-cat="drip">
+            <div class="product-thumbnail">
+              <span class="product-badge">辦公室人氣</span>
+              <!-- Drip Bag Icon -->
+              <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="var(--blue-primary)" stroke-width="1.6">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <path d="M4 10h16"/>
+                <path d="M8 4v6M16 4v6"/>
+                <circle cx="12" cy="15" r="2" fill="var(--brown-primary)"/>
+              </svg>
+            </div>
+
+            <div class="product-body">
+              <span class="product-category-label">便利濾掛 ‧ 10入盒裝</span>
+              <h3 class="product-title">藍地日常 綜合濾掛隨享盒</h3>
+              <div class="product-notes">
+                <strong>內容：</strong>經典晨光×4 + 陽光果實×3 + 厚烤拿鐵×3
+              </div>
+
+              <ul class="product-features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  適合：辦公室隨身、出差旅行、露營
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  沖法：撕開掛杯，注入 150ml 熱水即可
+                </li>
+              </ul>
+
+              <div class="product-footer">
+                <div class="price-value">
+                  NT$ 250 <small>/ 盒 (10入)</small>
+                </div>
+                <button class="btn btn-blue btn-sm add-cart-action"
+                        data-id="drip-box"
+                        data-name="藍地日常 綜合濾掛隨享盒 (10入)"
+                        data-price="250">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 5: 家庭號 1 磅超值袋 (平價省錢大眾) -->
+          <article class="product-card" data-cat="bundle">
+            <div class="product-thumbnail">
+              <span class="product-badge brown">大容量超值省</span>
+              <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="var(--brown-primary)" stroke-width="1.6">
+                <path d="M4 6h16l-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6z"/>
+                <path d="M9 6V4a3 3 0 0 1 6 0v2"/>
+                <circle cx="12" cy="14" r="2.5" fill="var(--blue-primary)"/>
+              </svg>
+            </div>
+
+            <div class="product-body">
+              <span class="product-category-label">大眾家庭號 ‧ 1 磅 (450g)</span>
+              <h3 class="product-title">晨光特調 1磅經濟分享袋</h3>
+              <div class="product-notes">
+                <strong>特點：</strong>天天喝最划算！大包裝立省 NT$ 80
+              </div>
+
+              <ul class="product-features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  適合：全家同享、小工作室每日咖啡
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                  可選：提供代客研磨（免加價）
+                </li>
+              </ul>
+
+              <div class="product-footer">
+                <div class="price-value">
+                  NT$ 480 <small>/ 磅 (450g)</small>
+                </div>
+                <button class="btn btn-blue btn-sm add-cart-action"
+                        data-id="bean-mega"
+                        data-name="晨光特調 1磅經濟分享袋 (450g)"
+                        data-price="480">
+                  加入購物車
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Easy Brewing Guide / 3 步驟簡單沖泡 -->
+    <section class="brew-easy-section" id="brew">
+      <div class="container">
+        
+        <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+          <div class="section-eyebrow" style="justify-content: center;">Simple Brewing Tips</div>
+          <h2 class="section-heading">日常沖泡 <span class="highlight-brown">超簡單</span>，人人都是好咖啡師</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            不用精秤與高深技巧，照著直覺泡，也能沖出香濃回甘好咖啡。
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          
+          <div class="step-item-card">
+            <div class="step-num-badge">1</div>
+            <h3>濾掛隨手撕開掛上杯</h3>
+            <p>撕開濾紙封口，將兩側耳掛撐開穩穩掛於一般馬克杯緣，確認濾袋底部有足夠萃取滴漏空間。</p>
+          </div>
+
+          <div class="step-item-card">
+            <div class="step-num-badge">2</div>
+            <h3>熱水均勻倒入八分滿</h3>
+            <p>先倒一點熱水浸濕咖啡粉（等15秒更香），接著分兩次將熱水倒至濾袋八分滿，慢慢滴濾。</p>
+          </div>
+
+          <div class="step-item-card">
+            <div class="step-num-badge">3</div>
+            <h3>取出濾袋，即可享用！</h3>
+            <p>萃取約 150ml 至 180ml 後取出濾袋。黑咖啡清爽甘甜，加入少許熱鮮奶或冰塊，風味隨心變換！</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- First Timer Starter Bundle / 吸引大眾消費 -->
+    <section class="starter-bundle-section" id="bundle">
+      <div class="container">
+        
+        <div class="starter-card-box">
+          <div class="starter-content">
+            <span style="font-size: 11px; background: var(--brown-primary); color: #fff; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px;">
+              新朋友限定超值組
+            </span>
+            <h3>「初次相見」藍地日常生活咖啡體驗組</h3>
+            <p>一次收齊藍地最受歡迎的日常好味道！含新鮮烘焙咖啡豆、便攜濾掛包與專屬耐熱雙層玻璃杯，無論在家或公司，隨時享受好咖啡。</p>
+
+            <ul class="bundle-includes">
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                藍地晨光 經典特調日常豆 (半磅 225g)
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                人氣綜合濾掛隨享包 5 入裝
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                贈品：藍地雙層防燙高硼矽玻璃杯 乙只（市價 NT$ 250）
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                免運優惠：超商取貨享「免運費直送」
+              </li>
+            </ul>
+
+            <button class="btn btn-brown add-cart-action"
+                    data-id="starter-bundle"
+                    data-name="藍地日常生活咖啡體驗組 (含杯子)"
+                    data-price="499">
+              立即帶走新客嚐鮮組 (NT$ 499)
+            </button>
+          </div>
+
+          <div class="starter-price-card">
+            <div style="font-size: 13px; color: var(--blue-primary); font-weight: 700; margin-bottom: 4px;">
+              STARTER VALUE PACK
+            </div>
+            <div class="starter-old-price">原組合總價 NT$ 780</div>
+            <div class="starter-deal-price">
+              NT$ 499
+              <small>/ 全套現省 NT$ 281</small>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+              每人限購 2 組 ‧ 支援 7-11 / 全家超商貨到付款
+            </p>
+            <div style="font-size: 11.5px; background: #ffffff; padding: 8px 12px; border-radius: 4px; color: var(--blue-primary); font-weight: 600;">
+              🚚 結帳即享免運費，下單後 48 小時內新鮮出貨
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Social Reviews / 一般大眾好評 -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        
+        <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+          <div class="section-eyebrow" style="justify-content: center;">Real Customer Reviews</div>
+          <h2 class="section-heading">大眾顧客的 <span class="highlight-blue">溫暖喝後心得</span></h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            每一天喝一杯好咖啡，就是生活中最踏實的幸福。
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          
+          <div class="review-bubble">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">
+                「以前總覺得精品咖啡太酸喝不慣，超商的又太苦。朋友推薦藍地晨光配方，喝起來非常溫和順口，黑糖堅果味很香，現在每天出門前都用美式機煮一壺！」
+              </p>
+            </div>
+            <div class="customer-meta">
+              <div class="customer-avatar">張</div>
+              <div>
+                <div class="customer-name">張小姐（家庭主婦）</div>
+                <div class="customer-tag">購買：藍地晨光 1磅經濟分享袋</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-bubble">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">
+                「上班必備的濾掛包！綜合盒裝裡每一種口味都不踩雷，特別是厚烤焦糖拿鐵，加全脂牛奶超濃超好喝，下午同事聞到香味都跑來問我哪裡買的。」
+              </p>
+            </div>
+            <div class="customer-meta">
+              <div class="customer-avatar">劉</div>
+              <div>
+                <div class="customer-name">劉先生（行銷企劃）</div>
+                <div class="customer-tag">購買：藍地日常綜合濾掛 10 入盒</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-bubble">
+            <div>
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">
+                「價格真的非常親民，半磅 280 元品質比外面很多連鎖店新鮮太多。豆子磨開就很有香氣，滿 599 就免運，補貨完全沒負擔！」
+              </p>
+            </div>
+            <div class="customer-meta">
+              <div class="customer-avatar">陳</div>
+              <div>
+                <div class="customer-name">陳同學（大學研究生）</div>
+                <div class="customer-tag">購買：初次相見嚐鮮體驗組</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-layout">
+        
+        <!-- Brand Info -->
+        <div>
+          <div class="brand" style="margin-bottom: 14px;">
+            <div class="brand-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              </svg>
+            </div>
+            <div class="brand-title">
+              <h3 style="color: #ffffff; font-size: 20px;">藍地咖啡</h3>
+              <span style="color: var(--brown-latte);">LAN DI COFFEE</span>
+            </div>
+          </div>
+          <p style="font-size: 13px; line-height: 1.8; max-width: 300px;">
+            藍色、米色、淺棕色的日常溫暖配色。我們致力於推廣好喝、平價、不酸澀的日常好咖啡，讓每一天的生活更添溫潤香醇。
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>日常選購</h4>
+          <ul class="footer-links">
+            <li><a href="#products">新鮮日常咖啡豆</a></li>
+            <li><a href="#products">辦公室人氣濾掛</a></li>
+            <li><a href="#bundle">新客體驗超值組</a></li>
+            <li><a href="#quiz">30秒口味測驗</a></li>
+          </ul>
+        </div>
+
+        <!-- Coffee Tips -->
+        <div class="footer-col">
+          <h4>日常保存小知識</h4>
+          <ul class="footer-links">
+            <li><a href="#brew">密封夾鏈袋保存常識</a></li>
+            <li><a href="#brew">常溫陰涼處避光存放</a></li>
+            <li><a href="#brew">黃金賞味期建議 30 天</a></li>
+            <li><a href="#brew">加牛奶的最佳粉水比例</a></li>
+          </ul>
+        </div>
+
+        <!-- Store / Contact -->
+        <div class="footer-col">
+          <h4>顧客服務與門市</h4>
+          <div class="footer-contact-row">
+            <span>📍</span>
+            <span>台中市西區民生路 128 號（藍地日常概念店）</span>
+          </div>
+          <div class="footer-contact-row">
+            <span>⏰</span>
+            <span>週一至週日 08:30 - 18:00 (天天為你現磨)</span>
+          </div>
+          <div class="footer-contact-row">
+            <span>📞</span>
+            <span>(04) 2221-5888 ｜ 支援大宗團購與代客磨豆</span>
+          </div>
+          <div class="footer-contact-row">
+            <span>✉️</span>
+            <span>service@landicoffee.com.tw</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 藍地咖啡 LAN DI COFFEE. 依據 outline.md 規格生成.
+        </div>
+        <div>
+          規格：一般咖啡豆 ‧ 藍色/米色/淺棕色 ‧ 平價日常大眾推廣
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer (側邊購物車) -->
+  <div class="cart-drawer-mask" id="cartMask"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="購物清單">
+    <div class="cart-head">
+      <h3>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        我的咖啡清單
+      </h3>
+      <button class="close-cart" id="closeCartBtn" aria-label="關閉清單">&times;</button>
+    </div>
+
+    <div class="cart-body-list" id="cartList">
+      <div class="cart-empty-state">
+        <p>目前購物車空空的</p>
+        <p style="font-size: 12px; margin-top: 6px;">挑選一包新鮮日常豆，享受每一天的香濃！</p>
+      </div>
+    </div>
+
+    <div class="cart-foot-panel">
+      <div class="free-shipping-bar" id="shippingStatus">
+        滿 NT$ 599 享超商免運 (尚差 NT$ 599)
+      </div>
+      <div class="cart-total-line">
+        <span>結帳總計</span>
+        <span id="cartTotalPrice">NT$ 0</span>
+      </div>
+      <button class="btn btn-blue" id="checkoutAction" style="width: 100%;">
+        立即前往結帳（享新鮮現烘直送）
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Box -->
+  <div class="toast-box" id="toastBox">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5835e" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+    <span id="toastContent">已加入購物車！</span>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* -------------------------------------------
+         1. Mobile Menu Toggle
+         ------------------------------------------- */
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      menuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+      });
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+        });
+      });
+
+      /* -------------------------------------------
+         2. Sticky Header Shadow
+         ------------------------------------------- */
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      /* -------------------------------------------
+         3. Category Filter Tabs
+         ------------------------------------------- */
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const productCards = document.querySelectorAll('.product-card');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const filter = tab.getAttribute('data-filter');
+
+          productCards.forEach(card => {
+            const cat = card.getAttribute('data-cat');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      /* -------------------------------------------
+         4. Interactive Quiz Logic
+         ------------------------------------------- */
+      let q1Answer = 'black';
+      let q2Answer = 'nutty';
+
+      const q1Btns = document.querySelectorAll('#quizQ1 .quiz-option-btn');
+      const q2Btns = document.querySelectorAll('#quizQ2 .quiz-option-btn');
+      const recommendName = document.getElementById('recommendName');
+      const recommendDesc = document.getElementById('recommendDesc');
+      const recommendAddBtn = document.getElementById('recommendAddBtn');
+
+      function updateRecommendation() {
+        if (q1Answer === 'latte' || q2Answer === 'cocoa') {
+          recommendName.textContent = "厚烤焦糖 拿鐵專用配方豆";
+          recommendDesc.textContent = "中深烘焙，黑巧克力與烤核桃香氣！加牛奶後濃郁醇厚，宛如咖啡館的極致厚乳拿鐵。";
+          recommendAddBtn.setAttribute('data-id', 'bean-latte');
+          recommendAddBtn.setAttribute('data-name', '厚烤焦糖 拿鐵專用配方豆');
+          recommendAddBtn.setAttribute('data-price', '290');
+          recommendAddBtn.textContent = "加入推薦品項 (NT$ 290)";
+        } else if (q1Answer === 'drip') {
+          recommendName.textContent = "藍地日常 綜合濾掛隨享盒 (10入)";
+          recommendDesc.textContent = "一盒收錄晨光、陽光與拿鐵三種風味。撕開即沖，辦公室最方便的好咖啡！";
+          recommendAddBtn.setAttribute('data-id', 'drip-box');
+          recommendAddBtn.setAttribute('data-name', '藍地日常 綜合濾掛隨享盒 (10入)');
+          recommendAddBtn.setAttribute('data-price', '250');
+          recommendAddBtn.textContent = "加入推薦品項 (NT$ 250)";
+        } else if (q2Answer === 'fruity') {
+          recommendName.textContent = "陽光果實 溫和柔和特調豆";
+          recommendDesc.textContent = "中淺烘焙，帶有甜橙柑橘與香草清香。溫和不酸澀，適合清爽晨間第一杯。";
+          recommendAddBtn.setAttribute('data-id', 'bean-sun');
+          recommendAddBtn.setAttribute('data-name', '陽光果實 溫和柔和特調豆');
+          recommendAddBtn.setAttribute('data-price', '320');
+          recommendAddBtn.textContent = "加入推薦品項 (NT$ 320)";
+        } else {
+          recommendName.textContent = "藍地晨光 經典特調日常豆";
+          recommendDesc.textContent = "堅果甘甜配方，圓潤順口不酸澀，黑咖啡與小拿鐵皆完美適配！";
+          recommendAddBtn.setAttribute('data-id', 'bean-morning');
+          recommendAddBtn.setAttribute('data-name', '藍地晨光 經典特調日常豆');
+          recommendAddBtn.setAttribute('data-price', '280');
+          recommendAddBtn.textContent = "加入推薦品項 (NT$ 280)";
+        }
+      }
+
+      q1Btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          q1Btns.forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          q1Answer = btn.getAttribute('data-val');
+          updateRecommendation();
+        });
+      });
+
+      q2Btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          q2Btns.forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          q2Answer = btn.getAttribute('data-val');
+          updateRecommendation();
+        });
+      });
+
+      /* -------------------------------------------
+         5. Shopping Cart Functionality
+         ------------------------------------------- */
+      const cart = [];
+      const openCartBtn = document.getElementById('openCartBtn');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const cartMask = document.getElementById('cartMask');
+      const cartSidebar = document.getElementById('cartSidebar');
+      const cartCount = document.getElementById('cartCount');
+      const cartList = document.getElementById('cartList');
+      const cartTotalPrice = document.getElementById('cartTotalPrice');
+      const shippingStatus = document.getElementById('shippingStatus');
+      const toastBox = document.getElementById('toastBox');
+      const toastContent = document.getElementById('toastContent');
+
+      function openDrawer() {
+        cartSidebar.classList.add('active');
+        cartMask.classList.add('active');
+      }
+
+      function closeDrawer() {
+        cartSidebar.classList.remove('active');
+        cartMask.classList.remove('active');
+      }
+
+      openCartBtn.addEventListener('click', openDrawer);
+      closeCartBtn.addEventListener('click', closeDrawer);
+      cartMask.addEventListener('click', closeDrawer);
+
+      function showToast(msg) {
+        toastContent.textContent = msg;
+        toastBox.classList.add('show');
+        setTimeout(() => {
+          toastBox.classList.remove('show');
+        }, 3000);
+      }
+
+      function updateCartUI() {
+        const totalItems = cart.reduce((acc, curr) => acc + curr.qty, 0);
+        cartCount.textContent = totalItems;
+
+        if (cart.length === 0) {
+          cartList.innerHTML = `
+            <div class="cart-empty-state">
+              <p>目前購物車空空的</p>
+              <p style="font-size: 12px; margin-top: 6px;">挑選一包新鮮日常豆，享受每一天的香濃！</p>
+            </div>
+          `;
+          cartTotalPrice.textContent = "NT$ 0";
+          shippingStatus.textContent = "滿 NT$ 599 享超商免運 (尚差 NT$ 599)";
+          shippingStatus.style.background = "var(--blue-soft)";
+          shippingStatus.style.color = "var(--blue-primary)";
+          return;
+        }
+
+        let sum = 0;
+        let html = '';
+
+        cart.forEach((item, idx) => {
+          sum += item.price * item.qty;
+          html += `
+            <div class="cart-row-item">
+              <div class="cart-row-img">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="cart-row-name">${item.name}</div>
+                <div class="cart-row-price">NT$ ${item.price.toLocaleString()} × ${item.qty}</div>
+              </div>
+              <button class="cart-row-del" data-idx="${idx}">刪除</button>
+            </div>
+          `;
+        });
+
+        cartList.innerHTML = html;
+        cartTotalPrice.textContent = `NT$ ${sum.toLocaleString()}`;
+
+        if (sum >= 599) {
+          shippingStatus.innerHTML = `🎉 已達 NT$ 599 免運門檻！享受超商免運費直送。`;
+          shippingStatus.style.background = "#e6f4ea";
+          shippingStatus.style.color = "#137333";
+        } else {
+          const diff = 599 - sum;
+          shippingStatus.innerHTML = `滿 NT$ 599 享超商免運 (尚差 NT$ ${diff.toLocaleString()})`;
+          shippingStatus.style.background = "var(--blue-soft)";
+          shippingStatus.style.color = "var(--blue-primary)";
+        }
+
+        // Delete buttons
+        document.querySelectorAll('.cart-row-del').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const index = parseInt(e.target.getAttribute('data-idx'), 10);
+            cart.splice(index, 1);
+            updateCartUI();
+            showToast("已從清單中移除品項");
+          });
+        });
+      }
+
+      // Add to cart buttons
+      function setupAddToCart(element) {
+        element.addEventListener('click', () => {
+          const id = element.getAttribute('data-id');
+          const name = element.getAttribute('data-name');
+          const price = parseInt(element.getAttribute('data-price'), 10);
+
+          const existing = cart.find(i => i.id === id);
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({ id, name, price, qty: 1 });
+          }
+
+          updateCartUI();
+          showToast(`已將「${name}」加入購物車！`);
+          openDrawer();
+        });
+      }
+
+      document.querySelectorAll('.add-cart-action').forEach(btn => setupAddToCart(btn));
+      setupAddToCart(recommendAddBtn);
+
+      // Checkout Button
+      document.getElementById('checkoutAction').addEventListener('click', () => {
+        if (cart.length === 0) {
+          showToast("購物車目前沒有品項，請先選購！");
+          return;
+        }
+        showToast("感謝您的訂購！訂單已成立，新鮮咖啡豆將於 48 小時內烘焙寄出。");
+        cart.length = 0;
+        updateCartUI();
+        setTimeout(closeDrawer, 1200);
+      });
+
+    });
+  </script>
+</body>
+</html>
+
